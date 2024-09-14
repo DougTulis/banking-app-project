@@ -1,5 +1,7 @@
 package entities;
 
+import entities.exceptions.AccountException;
+
 public class commonUser extends User {
 
 	private Long cpf;
@@ -17,6 +19,14 @@ public class commonUser extends User {
 		this.cpf = cpf;
 	}
 	
+	public void transfer(Double amount) {
+		if (amount > getBalance()) {
+			throw new AccountException("Amount must be greater than the balance.");
+		} else setBalance(getBalance() - amount);
+		}
 	
+    public void deposit(Double amount) {
+    	setBalance(getBalance() + amount);
+	}
 	
 }

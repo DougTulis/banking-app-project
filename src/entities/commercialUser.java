@@ -17,4 +17,7 @@ public class commercialUser extends User{
 		this.cnpj = cnpj;
 	}
 	
+	   public void deposit(double amount) {
+	    setBalance(getBalance() + amount);
+		}
 }

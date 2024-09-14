@@ -12,10 +12,9 @@ public class Program {
 	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
-		System.out.println("===========================================================");
-		System.out.println(
-				"(             T R A N S F E R   S Y S T E M                         )                             ");
-		System.out.println("===========================================================");
+		System.out.println(" ===========================================================");
+		System.out.println("(                T R A N S F E R   S Y S T E M              ");
+		System.out.println( "===========================================================");
 		System.out.println("MAIN MENU");
 		System.out.println("Enter account data: ");
 		System.out.print("Are you a individual or commercial account? ");
@@ -51,19 +50,25 @@ public class Program {
 					System.out.println();
 					break;
 				case 2:
-					System.out.println("Enter the email of the account you are transferring to:");
-					Double value = sc.nextDouble();
-					System.out.println("Enter the amount you want to transfer (Your current balance is $)"
-							+ String.format("%.2f", common.getBalance()));
+					System.out.print("Enter the email of the account you are transferring to:");
+					String emailDestination = sc.next();
+					System.out.print("Enter the amount you want to transfer (Your current balance is $"
+							+ String.format("%.2f", common.getBalance())+"): ");
+					Double amount = sc.nextDouble();
+					common.transfer(amount);
 					System.out.println("Transfer successful!");
+					System.out.println("Current balance: $" + common.getBalance());
 					break;
 				case 3:
-					System.out.println("Enter the deposit amount");
-					double amount = sc.nextDouble();
+					System.out.print("Enter the deposit amount: ");
+					Double amt = sc.nextDouble();
+					common.deposit(amt);
 					System.out.println("Deposit successfully completed!");
+					System.out.println("Current balance: R$" + common.getBalance());
 					break;
 				case 4:
 					main(args);
+					break;
 				}
 			} while (decision > 4);
 		} else {
@@ -75,13 +80,16 @@ public class Program {
 				case 1:
 					System.out.println("Balance so far: $" + String.format("%.2f", commercial.getBalance()));
 					System.out.println();
+					break;
 				case 2:
 					System.out.println("Enter the deposit amount");
 					double amount = sc.nextDouble();
 					System.out.println("Deposit successfully completed!");
+					System.out.println("Current balance: " + commercial.getBalance());
 					break;
 				case 3:
 					main(args);
+					break;
 				}
 			} while (decision > 3);
 
