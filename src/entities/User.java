@@ -47,4 +47,20 @@ public abstract class User {
 	public void setBalance(Double balance) {
 		this.balance = balance;
 	}
+	
+	public static void menuCommercialUser() {
+		System.out.println("####OPTION MENU FOR COMMERCIAL ACCOUNT USER####");
+		System.out.println("[1] Check Balance");
+		System.out.println("[2] Make Deposit");
+		System.out.println("[3] Return to main menu");
+	}
+	
+	public static void menuCommonUser() {
+		System.out.println("####OPTION MENU FOR INDIVIDUAL ACCOUNT USER####");
+		System.out.println("[1] Check Balance");
+		System.out.println("[2] Make Transferer");
+		System.out.println("[3] Make Deposit");
+		System.out.println("[4] Return to main menu");
+	}
+	
 }

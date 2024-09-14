@@ -3,6 +3,7 @@ package application;
 import java.util.Locale;
 import java.util.Scanner;
 
+import entities.User;
 import entities.commercialUser;
 import entities.commonUser;
 
@@ -42,11 +43,7 @@ public class Program {
 		if (type.equalsIgnoreCase("individual")) {
 			commonUser common = new commonUser(name, email, password, initBalance, number);
 			do {
-				System.out.println("####OPTION MENU FOR INDIVIDUAL ACCOUNT USER####");
-				System.out.println("[1] Check Balance");
-				System.out.println("[2] Make Transferer");
-				System.out.println("[3] Make Deposit");
-				System.out.println("[4] Return to main menu");
+			User.menuCommonUser();
 				decision = sc.nextInt();
 				switch (decision) {
 				case 1:
@@ -72,18 +69,23 @@ public class Program {
 		} else {
 			commercialUser commercial = new commercialUser(name, email, password, initBalance, number);
 			do {
-				System.out.println("####OPTION MENU FOR INDIVIDUAL ACCOUNT USER####");
-				System.out.println("[1] Check Balance");
-				System.out.println("[2] Make Deposit");
-				System.out.println("[3] Return to main menu");
+				User.menuCommercialUser();
 				decision = sc.nextInt();
-			} while (decision > 4);
-                switch (decision) {
-                case 1:
+				switch (decision) {
+				case 1:
 					System.out.println("Balance so far: $" + String.format("%.2f", commercial.getBalance()));
 					System.out.println();
-                }
-		}
+				case 2:
+					System.out.println("Enter the deposit amount");
+					double amount = sc.nextDouble();
+					System.out.println("Deposit successfully completed!");
+					break;
+				case 3:
+					main(args);
+				}
+			} while (decision > 3);
 
+		}
+		sc.close();
 	}
 }
