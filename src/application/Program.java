@@ -13,8 +13,8 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		System.out.println(" ===========================================================");
-		System.out.println("(                T R A N S F E R   S Y S T E M              ");
-		System.out.println( "===========================================================");
+		System.out.println("                T R A N S F E R   S Y S T E M              ");
+		System.out.println("===========================================================");
 		System.out.println("MAIN MENU");
 		System.out.println("Enter account data: ");
 		System.out.print("Are you a individual or commercial account? ");
@@ -42,7 +42,7 @@ public class Program {
 		if (type.equalsIgnoreCase("individual")) {
 			commonUser common = new commonUser(name, email, password, initBalance, number);
 			do {
-			User.menuCommonUser();
+				User.menuCommonUser();
 				decision = sc.nextInt();
 				switch (decision) {
 				case 1:
@@ -53,7 +53,7 @@ public class Program {
 					System.out.print("Enter the email of the account you are transferring to:");
 					String emailDestination = sc.next();
 					System.out.print("Enter the amount you want to transfer (Your current balance is $"
-							+ String.format("%.2f", common.getBalance())+"): ");
+							+ String.format("%.2f", common.getBalance()) + "): ");
 					Double amount = sc.nextDouble();
 					common.transfer(amount);
 					System.out.println("Transfer successful!");
@@ -70,7 +70,8 @@ public class Program {
 					main(args);
 					break;
 				}
-			} while (decision > 4);
+			} while (decision < 4);
+			
 		} else {
 			commercialUser commercial = new commercialUser(name, email, password, initBalance, number);
 			do {
@@ -82,9 +83,9 @@ public class Program {
 					System.out.println();
 					break;
 				case 2:
-					System.out.println("Enter the deposit amount");
+					System.out.print("Enter the deposit amount: ");
 					Double amount = sc.nextDouble();
-		            commercial.deposit(amount);
+					commercial.deposit(amount);
 					System.out.println("Deposit successfully completed!");
 					System.out.println("Current balance: " + commercial.getBalance());
 					break;
@@ -92,8 +93,7 @@ public class Program {
 					main(args);
 					break;
 				}
-			} while (decision > 3);
-
+			} while (decision < 3);
 		}
 		sc.close();
 	}
