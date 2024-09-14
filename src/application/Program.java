@@ -83,7 +83,8 @@ public class Program {
 					break;
 				case 2:
 					System.out.println("Enter the deposit amount");
-					double amount = sc.nextDouble();
+					Double amount = sc.nextDouble();
+		            commercial.deposit(amount);
 					System.out.println("Deposit successfully completed!");
 					System.out.println("Current balance: " + commercial.getBalance());
 					break;
